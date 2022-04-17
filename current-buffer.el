@@ -75,6 +75,7 @@ Else throw an error."
                           verb
                           buffer-name)))
 
+;;;###autoload
 (defun current-buffer-rename (new-file-name &optional buffer ok-if-already-exists)
   "Rename a buffer and the file it's visiting, if any, to NEW-FILE-NAME.
 
@@ -112,6 +113,7 @@ OK-IF-ALREADY-EXISTS is passed directly to `rename-file'."
              orig-buffer-name new-buffer-name
              new-file-name)))
 
+;;;###autoload
 (defun current-buffer-delete (&optional buffer)
   "Delete the file BUFFER is visiting, if any, then kill the buffer.
 
@@ -133,6 +135,7 @@ If BUFFER is a symbol, prompt the user for the name of the buffer to use."
       (message "Deleted file %s" file))
     (kill-buffer buffer)))
 
+;;;###autoload
 (defun current-buffer-copy
     (new-file-name
      &optional
@@ -185,6 +188,7 @@ KEEP-TIME, PRESERVE-UID-GID, and PRESERVE-PERMISSIONS are passed directly to `co
     (message "Wrote buffer %s to %s and opened the new file as %s."
              (buffer-name buffer) new-file-name new-buffer-name)))
 
+;;;###autoload
 (defun current-buffer-revert (&optional noconfirm)
   "Replace current buffer text with the text of the visited file on disk.
 
@@ -193,6 +197,7 @@ NOCONFIRM is set to t when called interactively with a prefix argument."
   (interactive (list current-prefix-arg))
   (revert-buffer :ignore-auto (or noconfirm (not (buffer-modified-p)))))
 
+;;;###autoload
 (defun current-buffer-kill (&optional ignore-buffer-modified-p)
   "Kill the current buffer.
 
@@ -203,6 +208,7 @@ IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a prefix arg
     (set-buffer-modified-p nil))
   (kill-buffer (current-buffer)))
 
+;;;###autoload
 (defun current-buffer-yank-path ()
   "Place the path of the current buffer's visited file on the kill ring."
   (interactive)
@@ -211,6 +217,7 @@ IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a prefix arg
     (kill-new expanded-filename)
     (message "Copied buffer path '%s' to the clipboard." expanded-filename)))
 
+;;;###autoload
 (defun current-buffer-dired ()
   "Open the current directory in Dired."
   (interactive)
