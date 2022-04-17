@@ -1,0 +1,17 @@
+#+TITLE: Current Buffer
+#+SUBTITLE: Utilities for operating on the current buffer in Emacs
+#+AUTHOR: Joseph M LaFreniere (lafrenierejm)
+
+/Current Buffer/ is an Emacs library providing utilities for operating on the current buffer.
+
+* License
+
+Copyright © 2022 Joseph M LaFreniere.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+The full license text is available at [[file:LICENSE][LICENSE]].
