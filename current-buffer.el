@@ -122,8 +122,8 @@ If BUFFER is not provided, use the current buffer.
 If BUFFER is a string, use that string as the name of the buffer to use.
 If BUFFER is a symbol, prompt the user for the name of the buffer to use."
   ;; If called interactively...
-  (interactive (list (current-buffer~get-buffer "delete")))
-  (let* ((buffer (current-buffer~obj-to-buffer buffer))
+  (interactive (list (current-buffer--get-buffer "delete")))
+  (let* ((buffer (current-buffer--obj-to-buffer buffer))
          (file (buffer-file-name buffer)))
     (when file
       (cond
