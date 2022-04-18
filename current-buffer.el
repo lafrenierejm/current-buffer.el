@@ -34,6 +34,7 @@
 ;;; Code:
 (require 'f)
 (require 'files)
+(require 'project)
 (require 'vc)
 (require 'vc-hooks)
 
@@ -216,13 +217,23 @@ IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a prefix arg
     (message "Copied buffer name '%s' to the clipboard." buffer-name)))
 
 ;;;###autoload
-(defun current-buffer-yank-path ()
-  "Place the path of the current buffer's visited file on the kill ring."
-  (interactive)
-  (when-let* ((filepath (or (buffer-file-name) default-directory))
-              (expanded-filename (expand-file-name filepath)))
-    (kill-new expanded-filename)
-    (message "Copied buffer path '%s' to the clipboard." expanded-filename)))
+(defun current-buffer-yank-path (&optional PROJECT-RELATIVE)
+  "Place the path of the current buffer's visited file on the kill ring.
+
+The default behavior is to use the current file's absolute path.  If optional
+argument PROJECT-RELATIVE is set, use the path relative to the current project's
+root, if any.  PROJECT-RELATIVE is set when called interactively with a prefix
+argument."
+  (interactive (list current-prefix-arg))
+  (when-let* ((path (or (buffer-file-name) default-directory))
+              (path-absolute (expand-file-name path))
+              (path-final (if-let* ((PROJECT-RELATIVE)
+                                    (project (project-current nil))
+                                    (project-root (project-root project)))
+                              (f-relative path-absolute project-root)
+                            path-absolute)))
+    (kill-new path-final)
+    (message "Copied buffer path '%s' to the clipboard." path-final)))
 
 ;;;###autoload
 (defun current-buffer-dired ()
