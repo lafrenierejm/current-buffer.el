@@ -4,6 +4,30 @@
 
 /Current Buffer/ is an Emacs library providing utilities for operating on the current buffer.
 
+
+* Usage
+
+As noted in the package commentary, keybindings are not added by this package.
+This is a deliberate decision to avoid the possibility of conflicting with any user's existing keybindings.
+Instead, users are encouraged to add bindings themselves for interactive use.
+One example using [[https://github.com/jwiegley/use-package][use-package]], [[https://github.com/raxod502/straight.el][straight]], [[https://github.com/noctuid/general.el][general]], and [[https://github.com/emacs-evil/evil][evil]] is
+#+begin_src emacs-lisp
+(use-package current-buffer
+  :straight (:host github
+             :repo "lafrenierejm/current-buffer.el")
+
+  :general
+  ("C-d" #'current-buffer-dired)
+  ("C-x C-S-d" #'current-buffer-delete)
+  ("C-x C-c" #'current-buffer-copy)
+  ("C-x C-k" #'current-buffer-kill)
+  ("C-x C-r" #'current-buffer-rename)
+  ("C-x y" #'current-buffer-yank-name)
+  ("C-x C-y" #'current-buffer-yank-path)
+  (:states '(normal)
+   "g r" #'current-buffer-revert))
+#+end_src
+
 * License
 
 Copyright © 2022 Joseph M LaFreniere.
