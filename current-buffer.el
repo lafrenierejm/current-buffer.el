@@ -209,6 +209,13 @@ IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a prefix arg
   (kill-buffer (current-buffer)))
 
 ;;;###autoload
+(defun current-buffer-yank-name ()
+  "Place the name of the current buffer on the kill ring."
+  (interactive)
+  (let ((buffer-name (kill-new (buffer-name (current-buffer)))))
+    (message "Copied buffer name '%s' to the clipboard." buffer-name)))
+
+;;;###autoload
 (defun current-buffer-yank-path ()
   "Place the path of the current buffer's visited file on the kill ring."
   (interactive)
