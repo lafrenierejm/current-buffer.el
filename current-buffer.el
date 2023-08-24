@@ -27,7 +27,7 @@
 
 ;; No keybindings are added by this package for any of its functions.  To
 ;; benefit from muscle memory, it is recommended to bind them to key chords
-;; similar to their more generic counterparts. For example, for
+;; similar to their more generic counterparts.  For example, for
 ;; `current-buffer-kill' one might do:
 ;; (keymap-global-set "C-x C-k" #'current-buffer-kill)
 
