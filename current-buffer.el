@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2022 Joseph M LaFreniere
 
-;; Author: Joseph M LaFreniere <joseph@lafreniere.xyz>
-;; Maintainer: Joseph M LaFreniere <joseph@lafreniere.xyz>
+;; Author: Joseph M LaFreniere <git@lafreniere.xyz>
+;; Maintainer: Joseph M LaFreniere <git@lafreniere.xyz>
 ;; License: GPL3+
 ;; URL: https://github.com/lafrenierejm/current-buffer.el
 ;; Version: 0.1.0
