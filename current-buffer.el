@@ -8,7 +8,7 @@
 ;; URL: https://github.com/lafrenierejm/current-buffer.el
 ;; Version: 0.1.0
 ;; Keywords: convenience
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: ((emacs "28.1") (f "0.20.0"))
 
 ;; This program is free software; you can redistribute it and/or modify it under
 ;; the terms of the GNU General Public License as published by the Free Software
@@ -36,6 +36,7 @@
 (require 'project)
 (require 'vc)
 (require 'vc-hooks)
+(require 'f)
 
 (defun current-buffer--obj-to-buffer (&optional buffer)
   "Get the BUFFER to use.
