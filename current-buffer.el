@@ -143,7 +143,7 @@ If BUFFER is a symbol, prompt the user for the name of the buffer to use."
      confirm-overwrite
      keep-time
      preserve-uid-gid
-     perserve-permissions)
+     preserve-permissions)
   "If buffer is visiting file, copy file to NEW-FILE-NAME and open in new buffer.
 
 If BUFFER is not provided, use the current buffer.
@@ -186,7 +186,7 @@ The following are passed directly to `copy-file':
                    t)
                  keep-time
                  preserve-uid-gid
-                 perserve-permissions)
+                 preserve-permissions)
       ;; Open NEW-FILE-NAME in a separate buffer.
       (setq new-buffer-name (buffer-name (find-file-noselect new-file-name))))
     (message "Wrote buffer %s to %s and opened the new file as %s."
