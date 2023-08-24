@@ -64,6 +64,7 @@ Else throw an error."
            (type-of buffer)))))
 
 (defun current-buffer--get-buffer (verb)
+  "Prompt user for buffer to perform VERB on."
   (if current-prefix-arg
       (get-buffer (read-buffer (format "Buffer to %s with visiting file: "
                                        verb)
