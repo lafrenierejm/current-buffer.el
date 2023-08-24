@@ -8,7 +8,7 @@
 ;; URL: https://github.com/lafrenierejm/current-buffer.el
 ;; Version: 0.1.0
 ;; Keywords: convenience
-;; Package-Requires: ((emacs "26.1") (f "0.20.0"))
+;; Package-Requires: ((emacs "28.1") (f "0.20.0"))
 
 ;; This program is free software; you can redistribute it and/or modify it under
 ;; the terms of the GNU General Public License as published by the Free Software
