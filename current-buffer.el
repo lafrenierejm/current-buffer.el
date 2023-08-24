@@ -7,7 +7,7 @@
 ;; License: GPL3+
 ;; URL: https://github.com/lafrenierejm/current-buffer.el
 ;; Version: 0.1.0
-;; Keywords: buffers
+;; Keywords: convenience
 ;; Package-Requires: ((emacs "26.1") (f "0.20.0"))
 
 ;; This program is free software; you can redistribute it and/or modify it under
