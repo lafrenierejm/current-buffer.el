@@ -70,7 +70,7 @@ Else throw an error."
                                (get-buffer (buffer-name))))))
 
 (defun current-buffer--read-file-name (verb buffer-name)
-  "Prompt the user for the destination of applying VERB to BUFFER-NAME's visiting file."
+  "Prompt user for destination of applying VERB to BUFFER-NAME's visiting file."
   (read-file-name (format "%s the file visited by buffer %s to: "
                           verb
                           buffer-name)))
@@ -144,18 +144,22 @@ If BUFFER is a symbol, prompt the user for the name of the buffer to use."
      keep-time
      preserve-uid-gid
      perserve-permissions)
-  "Copy the file a buffer is visiting, if any, to NEW-FILE-NAME and open the copy in a new buffer.
+  "If buffer is visiting file, copy file to NEW-FILE-NAME and open in new buffer.
 
 If BUFFER is not provided, use the current buffer.
 If BUFFER is a string, use that string as the name of the buffer to rename.
 If BUFFER is a buffer object, use it as the subject of the rename.
 
-If the specified buffer is not visiting a file, write the buffer's contents to NEW-FILE-NAME.
+If BUFFER is not visiting a file, write BUFFER's contents to NEW-FILE-NAME.
 
-If CONFIRM-OVERWRITE is non-nil, this function asks for confirmation before overwiting an existing file at NEW-FILE-NAME.
-Interactively, confirmation is required unless a prefix argument is supplied.
+If CONFIRM-OVERWRITE is non-nil, this function asks for confirmation before
+overwiting an existing file at NEW-FILE-NAME.  Interactively, confirmation is
+required unless a prefix argument is supplied.
 
-KEEP-TIME, PRESERVE-UID-GID, and PRESERVE-PERMISSIONS are passed directly to `copy-file'."
+The following are passed directly to `copy-file':
+- KEEP-TIME
+- PRESERVE-UID-GID
+- PRESERVE-PERMISSIONS"
   ;; If called interactively...
   (interactive (let* ((buffer (current-buffer--get-buffer "copy"))
                       (new-file-name (current-buffer--read-file-name
@@ -201,8 +205,9 @@ NOCONFIRM is set to t when called interactively with a prefix argument."
 (defun current-buffer-kill (&optional ignore-buffer-modified-p)
   "Kill the current buffer.
 
-If IGNORE-BUFFER-MODIFIED-P is nil, prompt the user before killing a modified buffer.
-IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a prefix argument."
+If IGNORE-BUFFER-MODIFIED-P is nil, prompt the user before killing a modified
+buffer.  IGNORE-BUFFER-MODIFIED-P is set to t when called interactively with a
+prefix argument."
   (interactive (list current-prefix-arg))
   (when ignore-buffer-modified-p
     (set-buffer-modified-p nil))
