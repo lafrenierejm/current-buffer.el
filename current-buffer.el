@@ -190,8 +190,8 @@ The following are passed directly to `copy-file':
                  preserve-uid-gid
                  preserve-permissions)
       ;; Open NEW-FILE-NAME in a separate buffer.
-      (setq new-buffer-name (buffer-name (find-file-noselect new-file-name))))
-    (message "Wrote buffer %s to %s and opened the new file as %s."
+      (setq new-buffer-name (buffer-name (find-file new-file-name))))
+    (message "Wrote buffer %s to %s and opened the new file."
              (buffer-name buffer) new-file-name new-buffer-name)))
 
 ;;;###autoload
