@@ -219,8 +219,9 @@ prefix argument."
 (defun current-buffer-yank-name ()
   "Place the name of the current buffer on the kill ring."
   (interactive)
-  (let ((buffer-name (kill-new (buffer-name (current-buffer)))))
-    (message "Copied buffer name '%s' to the clipboard." buffer-name)))
+  (let ((name (buffer-name (current-buffer))))
+    (kill-new name)
+    (message "Copied buffer name '%s' to the clipboard." name)))
 
 ;;;###autoload
 (defun current-buffer-yank-path (&optional PROJECT-RELATIVE)
